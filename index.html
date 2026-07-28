@@ -1,523 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samantics LLC | Samantha Lawton Duthie</title>
-  <meta name="description" content="Samantics LLC provides strategic solutions, smarter systems, and meaningful results for small businesses, creators, and community driven projects." />
-  <style>
-    :root {
-      --navy: #0f182d;
-      --teal: #6ba7a1;
-      --blue: #8faec9;
-      --plum: #7c4a6e;
-      --coral: #e18a7a;
-      --cream: #f2f0eb;
-      --white: #ffffff;
-      --ink: #182033;
-      --muted: #677083;
-      --shadow: 0 24px 70px rgba(15, 24, 45, 0.16);
-      --radius: 28px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 28px 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: rgba(242, 240, 235, 0.84);
-      border-bottom: 1px solid rgba(15, 24, 45, 0.08);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      color: var(--navy);
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 2px solid var(--navy);
-      display: grid;
-      place-items: center;
-      font-family: Georgia, serif;
-      font-size: 28px;
-      font-weight: 700;
-      background: var(--white);
-      box-shadow: 0 8px 22px rgba(15, 24, 45, 0.12);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--plum);
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 12px 18px;
-      background: var(--navy);
-      color: var(--white);
-      font-weight: 700;
-      box-shadow: 0 14px 30px rgba(15, 24, 45, 0.2);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(15, 24, 45, 0.24);
-    }
-
-    .hero {
-      padding: 86px 0 70px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--plum);
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 18px;
-    }
-
-    .eyebrow span {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--teal);
-    }
-
-    h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.05;
-      color: var(--navy);
-    }
-
-    h1 {
-      font-size: clamp(44px, 7vw, 82px);
-      letter-spacing: -0.05em;
-      margin-bottom: 22px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #3b4357;
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .button.secondary {
-      background: var(--white);
-      color: var(--navy);
-      border: 1px solid rgba(15, 24, 45, 0.12);
-      box-shadow: 0 12px 26px rgba(15, 24, 45, 0.08);
-    }
-
-    .hero-card {
-      background: linear-gradient(145deg, var(--navy), #17233d);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 34px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -80px -80px auto auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(107, 167, 161, 0.5), transparent 68%);
-    }
-
-    .hero-card h2 {
-      color: var(--white);
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
-
-    .hero-card p {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 16px;
-      margin-bottom: 22px;
-    }
-
-    .quick-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .quick-list div {
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    section {
-      padding: 64px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 26px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(34px, 4vw, 52px);
-      letter-spacing: -0.04em;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 24px;
-      border: 1px solid rgba(15, 24, 45, 0.08);
-      box-shadow: 0 14px 40px rgba(15, 24, 45, 0.08);
-    }
-
-    .card h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-flex;
-      margin-bottom: 16px;
-      color: var(--plum);
-      background: rgba(124, 74, 110, 0.1);
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .resume-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .resume-item {
-      padding: 22px;
-      background: var(--white);
-      border-radius: 22px;
-      border-left: 5px solid var(--teal);
-      box-shadow: 0 12px 32px rgba(15, 24, 45, 0.07);
-    }
-
-    .resume-item h3 {
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    .meta {
-      color: var(--plum);
-      font-weight: 800;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    ul {
-      padding-left: 18px;
-      margin-top: 10px;
-    }
-
-    li + li {
-      margin-top: 8px;
-    }
-
-    .banner {
-      background: linear-gradient(135deg, rgba(107, 167, 161, 0.22), rgba(124, 74, 110, 0.16));
-      border-radius: var(--radius);
-      padding: 36px;
-      border: 1px solid rgba(15, 24, 45, 0.08);
-    }
-
-    .contact {
-      background: var(--navy);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 42px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 22px;
-      align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    .contact h2 {
-      color: var(--white);
-      font-size: clamp(34px, 4vw, 54px);
-      margin-bottom: 12px;
-    }
-
-    .contact p {
-      color: rgba(255, 255, 255, 0.76);
-      max-width: 650px;
-    }
-
-    footer {
-      padding: 34px 0 48px;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center;
-    }
-
-    @media (max-width: 900px) {
-      .hero, .split, .contact {
-        grid-template-columns: 1fr;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-head p {
-        margin-top: 12px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The creative operations portfolio of Samantha Lawton Duthie. Brand strategy, websites, ecommerce, content, customer experience, and systems that work.">
+  <meta name="theme-color" content="#10192b">
+  <title>Samantha Lawton Duthie | Creative Operations Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="page nav">
-      <a class="brand" href="#top" aria-label="Samantics LLC home">
-        <img src="samantics-logo.png" alt="Samantics LLC Logo" style="width:52px;height:52px;border-radius:999px;object-fit:contain;background:white;padding:2px;box-shadow:0 8px 22px rgba(15,24,45,0.12);">
-        <span>Samantics LLC</span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <a class="skip-link" href="#main">Skip to the good stuff</a>
+
+  <header class="site-header" data-header>
+    <a class="wordmark" href="#top" aria-label="Samantics home">
+      <span class="wordmark-mark" aria-hidden="true">S</span>
+      <span>
+        <strong>Samantics</strong>
+        <small>Creative operations</small>
+      </span>
+    </a>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <span></span><span></span><span></span>
+      <span class="sr-only">Open navigation</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" data-nav aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a class="nav-cta" href="mailto:samantha@samantics.llc">Say hello</a>
+    </nav>
   </header>
 
-  <main id="top" class="page">
-    <section class="hero">
-      <div>
-        <div class="eyebrow"><span></span> Strategic solutions, smarter systems, meaningful results</div>
-        <h1>Practical support for busy businesses with big ideas.</h1>
-        <p>Samantics LLC helps small businesses, creators, and community centered projects organize the messy middle. From websites and workflows to marketing support and admin systems, this is where scattered pieces become something usable.</p>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Samantha Lawton Duthie · Covington, Kentucky</p>
+        <h1>I make the pretty parts work and the working parts make sense.</h1>
+        <p class="hero-lede">Creative strategy, websites, ecommerce, content, customer experience, and the behind the scenes systems that keep good ideas from wandering into traffic.</p>
         <div class="hero-actions">
-          <a class="button" href="mailto:slduthie@gmail.com">Work with Samantics LLC</a>
-          <a class="button secondary" href="#experience">View CV</a>
+          <a class="button button-primary" href="#work">See selected work</a>
+          <a class="button button-ghost" href="mailto:samantha@samantics.llc">samantha@samantics.llc</a>
         </div>
+        <ul class="hero-tags" aria-label="Areas of expertise">
+          <li>Brand strategy</li>
+          <li>Web experience</li>
+          <li>Creative operations</li>
+          <li>Customer journeys</li>
+        </ul>
       </div>
-      <aside class="hero-card" aria-label="About Samantics">
-        <h2>One umbrella. Many projects. One clear strategy.</h2>
-        <p>Built by Samantha Lawton Duthie, Samantics LLC brings together operations support, digital marketing, website work, and systems thinking for people who need someone who can see the whole board.</p>
-        <div class="quick-list">
-          <div>Digital marketing and SEO support</div>
-          <div>Website setup and content structure</div>
-          <div>Operations, admin, and workflow cleanup</div>
-          <div>Community focused creative projects</div>
-        </div>
-      </aside>
-    </section>
 
-    <section id="services">
-      <div class="section-head">
-        <h2>Services</h2>
-        <p>Flexible support for businesses that need momentum, organization, and a human who can translate chaos into next steps.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <span class="tag">Marketing</span>
-          <h3>SEO and digital content</h3>
-          <p>Website copy, search friendly structure, content planning, product descriptions, brand voice, and practical marketing support.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Web</span>
-          <h3>Website setup support</h3>
-          <p>Static sites, landing pages, content organization, basic site strategy, launch support, and AI assisted build coordination.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Operations</span>
-          <h3>Systems and admin</h3>
-          <p>Workflow cleanup, inventory support, spreadsheets, Airtable style planning, inbox friendly documentation, and process mapping.</p>
-        </article>
+      <div class="hero-stage reveal" aria-label="A visual map of Samantha's creative work">
+        <div class="stage-orbit orbit-one"></div>
+        <div class="stage-orbit orbit-two"></div>
+        <div class="stage-card stage-card-main">
+          <span class="stage-kicker">The sweet spot</span>
+          <strong>Useful<br>and alive.</strong>
+          <p>Good design should have a pulse and a job.</p>
+        </div>
+        <div class="stage-card stage-card-small stage-card-one"><span>01</span><strong>Clarify</strong></div>
+        <div class="stage-card stage-card-small stage-card-two"><span>02</span><strong>Connect</strong></div>
+        <div class="stage-card stage-card-small stage-card-three"><span>03</span><strong>Build</strong></div>
+        <div class="stage-note">Brand brain<br>meets engine room</div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="section-head">
-        <h2>Projects under the umbrella</h2>
-        <p>Samantics LLC is built to hold several connected projects, each rooted in clarity, connection, and real world usefulness.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <span class="tag">Equestrian</span>
-          <h3>At The In Gate</h3>
-          <p>A community driven equestrian platform for hunter jumper people, pony families, riders, sellers, shippers, and the delightfully opinionated barn aisle population.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Creative</span>
-          <h3>Theme Songs for Humans</h3>
-          <p>A custom music concept that turns real stories, relationships, and milestones into personal songs with meaning that actually sticks.</p>
-        </article>
-        <article class="card">
-          <span class="tag">Business support</span>
-          <h3>Client operations</h3>
-          <p>Behind the scenes marketing, operations, inventory, ecommerce support, and system building for businesses that need someone steady in the engine room.</p>
-        </article>
+    <section class="marquee" aria-label="Capabilities">
+      <div class="marquee-track">
+        <span>Brand voice</span><i>✦</i><span>Website strategy</span><i>✦</i><span>Ecommerce content</span><i>✦</i><span>Community design</span><i>✦</i><span>Workflow cleanup</span><i>✦</i><span>Customer experience</span><i>✦</i>
+        <span>Brand voice</span><i>✦</i><span>Website strategy</span><i>✦</i><span>Ecommerce content</span><i>✦</i><span>Community design</span><i>✦</i><span>Workflow cleanup</span><i>✦</i><span>Customer experience</span><i>✦</i>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="split">
-        <div class="banner">
-          <h2>CV snapshot</h2>
-          <p>Operations minded. Marketing capable. Horse world fluent. Human services student. Chaos translator. Spreadsheet negotiator. Website wrangler.</p>
-          <ul>
-            <li>Ecommerce operations and marketing support</li>
-            <li>Website content and digital project coordination</li>
-            <li>Equestrian sales, training, and community knowledge</li>
-            <li>Customer service, admin support, scheduling, and documentation</li>
-            <li>Human services education with a focus on people first support</li>
-          </ul>
+    <section class="intro-section section-pad" id="about">
+      <div class="section-label reveal">What I actually do</div>
+      <div class="intro-grid">
+        <h2 class="reveal">I translate between the idea people, the customer, and the spreadsheet nobody wants to open.</h2>
+        <div class="intro-copy reveal">
+          <p>My work sits where creative direction and practical operations overlap. I build brands, organize information, shape digital experiences, improve customer communication, and create systems real humans can maintain.</p>
+          <p>I care about how something looks. I care just as much about whether people understand it, whether the team can use it, and whether it solves the problem that started the whole circus.</p>
         </div>
-        <div class="resume-list">
-          <article class="resume-item">
-            <h3>Samantics LLC</h3>
-            <div class="meta">Founder and operator</div>
-            <p>Building an umbrella company for digital services, community projects, creative platforms, and practical business support.</p>
-          </article>
-          <article class="resume-item">
-            <h3>Pharmacie LLC</h3>
-            <div class="meta">Ecommerce operations and marketing support</div>
-            <p>Supporting online operations, product organization, marketing tasks, inventory coordination, and workflow improvement.</p>
-          </article>
-          <article class="resume-item">
-            <h3>Blue Moon Ponies</h3>
-            <div class="meta">Equestrian experience and client support</div>
-            <p>Longstanding hands on horse industry experience including training, sales, client communication, lessons, and community knowledge.</p>
-          </article>
-          <article class="resume-item">
-            <h3>Human services education</h3>
-            <div class="meta">Student and advocate</div>
-            <p>Studying human services with an interest in support systems, accessibility, family needs, and practical community resources.</p>
-          </article>
-        </div>
+      </div>
+      <div class="capability-grid">
+        <article class="capability-card reveal"><span>01</span><h3>Creative strategy</h3><p>Positioning, naming, brand voice, content direction, visual concepts, and the connective tissue that makes a business feel like itself.</p></article>
+        <article class="capability-card reveal"><span>02</span><h3>Digital experience</h3><p>Websites, information architecture, landing pages, ecommerce messaging, customer journeys, forms, and conversion focused copy.</p></article>
+        <article class="capability-card reveal"><span>03</span><h3>Operational clarity</h3><p>Knowledge bases, workflow mapping, documentation, inventory support, Airtable style planning, and fewer tiny preventable fires.</p></article>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="contact">
-        <div>
-          <h2>Need a clearer system?</h2>
-          <p>Reach out for website support, marketing help, operations cleanup, project organization, or a friendly business brain that can turn the pile into a plan.</p>
-        </div>
-        <a class="button secondary" href="mailto:slduthie@gmail.com">Email Samantics LLC</a>
+    <section class="work-section section-pad" id="work">
+      <div class="work-heading reveal">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects with a point of view and dirt under their fingernails.</h2>
+        <p>Each one began with a different kind of mess. The work was finding the thread, building the structure, and keeping the humanity intact.</p>
       </div>
+
+      <div class="project-index">
+        <a class="project-card project-card-gate reveal" href="#case-gate">
+          <div class="project-art project-art-gate" aria-hidden="true">
+            <div class="gate-browser"><div class="gate-browser-bar"><i></i><i></i><i></i></div><div class="gate-brand">AT THE<br>IN GATE</div><div class="gate-rule"></div><div class="gate-copy">The horse show world,<br>finally in one place.</div></div>
+            <div class="gate-tag">community · marketplace · culture</div>
+          </div>
+          <div class="project-meta"><span>01 · Flagship concept</span><h3>At The In Gate</h3><p>Brand strategy, product concept, website design, marketplace planning, membership, and community experience.</p></div>
+        </a>
+
+        <a class="project-card project-card-pharm reveal" href="#case-pharm">
+          <div class="project-art project-art-pharm" aria-hidden="true">
+            <div class="pharm-pill pill-a">Shipping clarity</div><div class="pharm-pill pill-b">Help center</div><div class="pharm-pill pill-c">Customer trust</div>
+            <div class="pharm-panel"><span>BONJOUR</span><strong>Complex information,<br>made calm.</strong></div>
+          </div>
+          <div class="project-meta"><span>02 · Former contract work</span><h3>Pharmarcie</h3><p>Ecommerce content, customer experience, knowledge base strategy, workflow documentation, and support operations.</p></div>
+        </a>
+
+        <a class="project-card project-card-music reveal" href="#case-music">
+          <div class="project-art project-art-music" aria-hidden="true">
+            <div class="music-disc"><span>U</span></div><div class="music-wave wave-one"></div><div class="music-wave wave-two"></div><div class="music-title">YOU<br>IN MUSIC</div><div class="music-caption">Your story already has a sound.</div>
+          </div>
+          <div class="project-meta"><span>03 · Creative product</span><h3>You In Music</h3><p>Brand concept, emotional positioning, intake experience, website content, product flow, and AI assisted creative direction.</p></div>
+        </a>
+
+        <a class="project-card project-card-samantics reveal" href="#case-samantics">
+          <div class="project-art project-art-samantics" aria-hidden="true"><div class="samantics-grid"></div><div class="samantics-s">S</div><div class="samantics-label">systems · stories · useful little miracles</div></div>
+          <div class="project-meta"><span>04 · Personal brand</span><h3>Samantics</h3><p>Positioning a broad, practical skill set as one coherent creative operations practice.</p></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="case-study case-gate section-pad" id="case-gate">
+      <div class="case-number reveal">01</div>
+      <div class="case-header reveal"><p class="eyebrow">At The In Gate</p><h2>A digital home for the barn aisle population.</h2><p>Most equestrian platforms treat the horse world as a collection of listings. At The In Gate was conceived as a living community product shaped around how hunter jumper people actually find information, trade recommendations, plan shows, move horses, and talk.</p></div>
+      <div class="case-facts reveal"><div><span>My role</span><strong>Founder, strategist, designer, builder</strong></div><div><span>Focus</span><strong>Brand, web, UX, product, community</strong></div><div><span>Audience</span><strong>Riders, pony families, sellers, shippers, professionals</strong></div></div>
+      <div class="case-story-grid">
+        <article class="case-story reveal"><span>The challenge</span><h3>A scattered community with no true front door.</h3><p>Information lived across Facebook groups, show websites, text threads, word of mouth, and platforms that understood transactions but not culture. The opportunity was to organize the useful stuff without sanding away the personality.</p></article>
+        <article class="case-story reveal"><span>The approach</span><h3>Build around real barn behavior.</h3><p>I mapped the platform around show calendars, listings, shippers, directories, membership, community conversations, practical resources, and the specific language that makes horse people recognize one another immediately.</p></article>
+        <article class="case-story reveal"><span>The result</span><h3>A scalable product with a recognizable soul.</h3><p>The project became a working platform foundation with clear navigation, reusable content systems, marketplace structures, account flows, and a visual identity that feels polished without pretending the barn is sterile.</p></article>
+      </div>
+      <div class="case-gallery gate-gallery reveal" aria-label="At The In Gate design concepts"><div class="gallery-panel gate-panel-large"><span>Platform architecture</span><strong>Community<br>Marketplace<br>Calendar<br>Directory</strong></div><div class="gallery-panel gate-panel-small"><span>Voice</span><strong>Classy.<br>Useful.<br>Opinionated.</strong></div><div class="gallery-panel gate-panel-small gate-panel-accent"><span>Principle</span><strong>Built from inside the culture.</strong></div></div>
+    </section>
+
+    <section class="case-study case-pharm section-pad" id="case-pharm">
+      <div class="case-number reveal">02</div>
+      <div class="case-header reveal"><p class="eyebrow">Pharmarcie</p><h2>Turning ecommerce confusion into customer confidence.</h2><p>International fulfillment, split shipments, product questions, tracking, customs, and inventory timing created a support environment where vague language could multiply stress quickly.</p></div>
+      <div class="case-facts reveal"><div><span>My role</span><strong>Customer experience and ecommerce contractor</strong></div><div><span>Focus</span><strong>Content, support, knowledge systems, operations</strong></div><div><span>Tools</span><strong>Shopify, Help Scout, Klaviyo, Airtable, email</strong></div></div>
+      <div class="case-story-grid">
+        <article class="case-story reveal"><span>The challenge</span><h3>Customers needed answers before they needed apologies.</h3><p>Important information was spread across systems and often required manual explanation. That increased repeated questions, inconsistent responses, and frustration for both customers and staff.</p></article>
+        <article class="case-story reveal"><span>The approach</span><h3>Create one calm, useful language system.</h3><p>I organized recurring questions, wrote help content, clarified fulfillment language, improved Shopify messaging, supported email communication, and documented repeatable response patterns for the team.</p></article>
+        <article class="case-story reveal"><span>The result</span><h3>Clearer information at every customer touchpoint.</h3><p>The work created a more consistent support experience, easier internal reference, stronger expectation setting, and a better bridge between customer service and ecommerce operations.</p></article>
+      </div>
+      <div class="case-gallery pharm-gallery reveal" aria-label="Pharmarcie content system concepts"><div class="pharm-doc"><span>Help center architecture</span><ul><li>Shipping and tracking</li><li>Partial orders</li><li>Returns and cancellations</li><li>Product and packaging</li></ul></div><blockquote>“Make the answer easy to find before the customer has to ask.”</blockquote></div>
+    </section>
+
+    <section class="case-study case-music section-pad" id="case-music">
+      <div class="case-number reveal">03</div>
+      <div class="case-header reveal"><p class="eyebrow">You In Music</p><h2>A personalized song service built around emotional accuracy.</h2><p>The product is not merely a song. It is the strange, lovely moment when someone hears their own story returned to them in music.</p></div>
+      <div class="case-facts reveal"><div><span>My role</span><strong>Founder, brand strategist, experience designer</strong></div><div><span>Focus</span><strong>Naming, product, copy, intake, conversion</strong></div><div><span>Method</span><strong>Human storytelling with AI assisted production</strong></div></div>
+      <div class="case-story-grid">
+        <article class="case-story reveal"><span>The challenge</span><h3>Personalized products can feel generic fast.</h3><p>The experience needed to make customers feel understood while collecting enough specific material to create a song with emotional detail, not greeting card wallpaper.</p></article>
+        <article class="case-story reveal"><span>The approach</span><h3>Design the intake as part of the gift.</h3><p>I shaped the brand around “putting the you in music,” developed guided story questions, planned the order journey, wrote conversion copy, and connected customer memories to a repeatable creative workflow.</p></article>
+        <article class="case-story reveal"><span>The result</span><h3>A clear product with genuine emotional stakes.</h3><p>The concept now has a distinctive name, voice, visual direction, purchase path, and experience model that makes the customer’s story the center of the product.</p></article>
+      </div>
+      <div class="music-quote reveal"><span>Core idea</span><blockquote>Your story already has a sound. We help you hear it.</blockquote></div>
+    </section>
+
+    <section class="case-study case-samantics section-pad" id="case-samantics">
+      <div class="case-number reveal">04</div>
+      <div class="case-header reveal"><p class="eyebrow">Samantics</p><h2>Making a many brained skill set feel coherent.</h2><p>Samantics was created to hold the work that does not fit neatly into one job title: creative direction, websites, operations, customer experience, content, documentation, and the ability to see the whole moving machine.</p></div>
+      <div class="case-facts reveal"><div><span>My role</span><strong>Founder and creative operator</strong></div><div><span>Focus</span><strong>Positioning, services, identity, portfolio</strong></div><div><span>Promise</span><strong>Structure without flattening personality</strong></div></div>
+      <div class="case-story-grid">
+        <article class="case-story reveal"><span>The challenge</span><h3>Variety can look scattered without the right frame.</h3><p>The brand needed to explain how marketing, systems, websites, writing, operations, and customer thinking belong together rather than presenting them as unrelated services.</p></article>
+        <article class="case-story reveal"><span>The approach</span><h3>Name the common thread: useful clarity.</h3><p>I positioned the practice as creative operations, built a voice that is warm and direct, organized the services around business outcomes, and created a visual identity that balances polish with real life texture.</p></article>
+        <article class="case-story reveal"><span>The result</span><h3>A brand broad enough to be honest and clear enough to hire.</h3><p>Samantics now functions as a coherent professional home for strategy, digital work, content, customer experience, and operational problem solving.</p></article>
+      </div>
+    </section>
+
+    <section class="process-section section-pad" id="process">
+      <div class="process-intro reveal"><p class="eyebrow">How I work</p><h2>Find the knot. Pull the right thread. Do not set the sweater on fire.</h2></div>
+      <ol class="process-list">
+        <li class="reveal"><span>01</span><div><h3>Notice</h3><p>I look for where people are confused, where work repeats, where the brand goes quiet, and where the system is quietly eating everyone’s afternoon.</p></div></li>
+        <li class="reveal"><span>02</span><div><h3>Make meaning</h3><p>I connect the audience, the business goal, the content, and the operational reality so we solve the actual problem instead of applying decorative wallpaper.</p></div></li>
+        <li class="reveal"><span>03</span><div><h3>Build clearly</h3><p>I create the words, structure, design direction, documentation, or workflow with enough order to use and enough life to remember.</p></div></li>
+        <li class="reveal"><span>04</span><div><h3>Leave it usable</h3><p>The final work should make the next step easier for customers and for the people who have to maintain it after launch.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="about-me section-pad">
+      <div class="about-portrait reveal" aria-hidden="true"><div class="portrait-frame"><span class="portrait-initials">SLD</span><div class="portrait-ring"></div><small>horse world grit<br>human services heart<br>creative systems brain</small></div></div>
+      <div class="about-content reveal"><p class="eyebrow">About Samantha</p><h2>I notice what gets overlooked.</h2><p>I am a creative operator, entrepreneur, human services student, equestrian lifer, customer advocate, and builder of things that did not exist five minutes before they were needed.</p><p>My background lets me move between people and systems without losing either one. I understand the customer who is confused, the owner carrying too much, the team trying to make the process work, and the brand that deserves to sound more alive than its current website.</p><div class="about-links"><a href="mailto:samantha@samantics.llc">Email Samantha</a><a href="https://github.com/samzwiches" target="_blank" rel="noreferrer">GitHub</a><a href="https://samantics.llc" target="_blank" rel="noreferrer">Samantics LLC</a></div></div>
+    </section>
+
+    <section class="contact-section section-pad">
+      <div class="contact-card reveal"><p class="eyebrow">Open to creative work</p><h2>Bring me the idea, the tangled process, or the website that technically works but feels faintly haunted.</h2><p>I am interested in creative strategy, digital experience, ecommerce, content, community, customer experience, and creative operations roles.</p><a class="button button-light" href="mailto:samantha@samantics.llc?subject=Creative%20opportunity">Start a conversation</a></div>
     </section>
   </main>
 
-  <footer>
-    <div class="page">© <span id="year"></span> Samantics LLC. Built with intention, caffeine, and a very serious umbrella.</div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <footer class="site-footer"><div><strong>Samantics</strong><span>Creative operations with a pulse.</span></div><p>© <span data-year></span> Samantha Lawton Duthie</p></footer>
 </body>
 </html>
