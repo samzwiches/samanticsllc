@@ -1,0 +1,16 @@
+.project-art-outside { position: relative; overflow: hidden; background: linear-gradient(145deg, #17333b, #0f242b); color: white; }
+.outside-grid { position: absolute; inset: 0; opacity: .22; background-image: linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px); background-size: 38px 38px; }
+.outside-browser { width: 78%; height: 76%; position: absolute; left: 11%; top: 12%; padding: 48px 32px 28px; border-radius: 24px; background: #f4efe7; color: #10192b; box-shadow: 0 28px 55px rgba(0,0,0,.32); transform: rotate(2deg); }
+.outside-browser::before { content: ""; height: 30px; position: absolute; inset: 0 0 auto; border-bottom: 1px solid rgba(16,25,43,.13); background: linear-gradient(90deg, #b34f42 0 8px, transparent 8px 14px, #b34f42 14px 22px, transparent 22px); background-repeat: no-repeat; background-position: 12px center; }
+.outside-kicker { display: block; color: #b34f42; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
+.outside-browser strong { max-width: 300px; margin-top: 28px; display: block; font-family: var(--serif); font-size: 38px; line-height: .9; letter-spacing: -.05em; }
+.outside-browser p { max-width: 260px; margin: 18px 0 0; color: #334057; font-size: 12px; line-height: 1.5; }
+.outside-paths { position: absolute; left: 32px; right: 32px; bottom: 26px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.outside-paths span { min-height: 45px; padding: 8px; display: flex; align-items: flex-end; border-radius: 8px; background: #d9e3e2; color: #17333b; font-size: 8px; font-weight: 800; }
+.outside-tag { position: absolute; right: 5%; bottom: 6%; padding: 10px 14px; border-radius: 999px; background: #b34f42; color: white; box-shadow: 0 12px 24px rgba(0,0,0,.2); font-size: 10px; font-weight: 800; transform: rotate(-3deg); }
+
+@media (max-width: 560px) {
+  .outside-browser { width: 84%; left: 8%; padding-left: 24px; padding-right: 24px; }
+  .outside-browser strong { font-size: 32px; }
+  .outside-paths { left: 24px; right: 24px; }
+}

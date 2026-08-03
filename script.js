@@ -35,20 +35,61 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
+if (!document.querySelector('link[href="portfolio-enhancements.css"]')) {
+  const enhancements = document.createElement('link');
+  enhancements.rel = 'stylesheet';
+  enhancements.href = 'portfolio-enhancements.css';
+  document.head.appendChild(enhancements);
+}
+
 const atigCard = document.querySelector('.project-card-gate');
 if (atigCard) {
   atigCard.setAttribute('href', 'at-the-in-gate.html');
-  atigCard.setAttribute('aria-label', 'Open the full At The In Gate visual case study');
+  atigCard.setAttribute('aria-label', 'Open the At The In Gate visual case study');
 }
 
+const projectIndex = document.querySelector('.project-index');
+if (projectIndex && !document.querySelector('.project-card-outside')) {
+  const outsideCard = document.createElement('a');
+  outsideCard.className = 'project-card project-card-outside';
+  outsideCard.href = 'outside-inmates.html';
+  outsideCard.setAttribute('aria-label', 'Open the Outside Inmates visual case study');
+  outsideCard.innerHTML = `
+    <div class="project-art project-art-outside" aria-hidden="true">
+      <div class="outside-grid"></div>
+      <div class="outside-browser">
+        <span class="outside-kicker">RESOURCES · GUIDANCE · COMMUNITY</span>
+        <strong>Support does not stop at the prison gate.</strong>
+        <p>A clearer place to begin when incarceration affects an entire family.</p>
+        <div class="outside-paths"><span>Start here</span><span>Find help</span><span>Reentry</span></div>
+      </div>
+      <div class="outside-tag">purpose · systems · dignity</div>
+    </div>
+    <div class="project-meta"><span>02 · Mission driven platform</span><h3>Outside Inmates</h3><p>Brand strategy, guided journeys, resource architecture, family support, reentry content, community design, and product systems.</p></div>`;
+  atigCard?.insertAdjacentElement('afterend', outsideCard);
+}
+
+const cardLabels = [
+  ['.project-card-pharm .project-meta span', '03 · Former contract work'],
+  ['.project-card-music .project-meta span', '04 · Creative product'],
+  ['.project-card-samantics .project-meta span', '05 · Personal brand']
+];
+cardLabels.forEach(([selector, label]) => {
+  const element = document.querySelector(selector);
+  if (element) element.textContent = label;
+});
+
 const atigGallery = document.querySelector('.gate-gallery');
-if (atigGallery && !document.querySelector('[data-atig-case-link]')) {
-  const action = document.createElement('div');
-  action.setAttribute('data-atig-case-link', '');
+if (atigGallery) {
+  let action = document.querySelector('[data-atig-case-link]');
+  if (!action) {
+    action = document.createElement('div');
+    action.setAttribute('data-atig-case-link', '');
+    atigGallery.insertAdjacentElement('afterend', action);
+  }
   action.style.marginTop = '22px';
   action.style.display = 'flex';
   action.style.flexWrap = 'wrap';
   action.style.gap = '12px';
-  action.innerHTML = '<a class="button button-primary" href="at-the-in-gate.html">Open the full visual case study ↗</a><a class="button button-ghost" href="https://attheingate.com" target="_blank" rel="noreferrer">Visit the live site ↗</a>';
-  atigGallery.insertAdjacentElement('afterend', action);
+  action.innerHTML = '<a class="button button-primary" href="at-the-in-gate.html">Open the full visual case study ↗</a>';
 }
