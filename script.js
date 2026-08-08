@@ -144,6 +144,7 @@ function installSamanticsLogo() {
     style.setAttribute('data-samantics-polish', '');
     style.textContent = `
       .wordmark-mark::before { content: none !important; display: none !important; }
+      .site-footer > div strong::after { content: none !important; display: none !important; }
       .stage-note {
         color: var(--ink) !important;
         background: rgba(255, 253, 249, .94);
