@@ -93,3 +93,39 @@ if (atigGallery) {
   action.style.gap = '12px';
   action.innerHTML = '<a class="button button-primary" href="at-the-in-gate.html">Open the full visual case study ↗</a>';
 }
+
+const pharmCard = document.querySelector('.project-card-pharm');
+if (pharmCard) {
+  pharmCard.setAttribute('href', 'pharmarcie.html');
+  pharmCard.setAttribute('aria-label', 'Open the Pharmarcie customer experience systems case study');
+
+  const pharmMeta = pharmCard.querySelector('.project-meta p');
+  if (pharmMeta) pharmMeta.textContent = 'Help Scout Beacon architecture, AI Answers, micro docs, workflow automation, and ecommerce customer experience.';
+
+  const pillA = pharmCard.querySelector('.pill-a');
+  const pillB = pharmCard.querySelector('.pill-b');
+  const pillC = pharmCard.querySelector('.pill-c');
+  if (pillA) pillA.textContent = 'AI triage';
+  if (pillB) pillB.textContent = 'Micro docs';
+  if (pillC) pillC.textContent = 'Smart routing';
+
+  const panelKicker = pharmCard.querySelector('.pharm-panel span');
+  const panelTitle = pharmCard.querySelector('.pharm-panel strong');
+  if (panelKicker) panelKicker.textContent = 'HELP SCOUT + AI';
+  if (panelTitle) panelTitle.innerHTML = 'Support,<br>intelligently routed.';
+}
+
+const pharmGallery = document.querySelector('.pharm-gallery');
+if (pharmGallery) {
+  let action = document.querySelector('[data-pharm-case-link]');
+  if (!action) {
+    action = document.createElement('div');
+    action.setAttribute('data-pharm-case-link', '');
+    pharmGallery.insertAdjacentElement('afterend', action);
+  }
+  action.style.marginTop = '22px';
+  action.style.display = 'flex';
+  action.style.flexWrap = 'wrap';
+  action.style.gap = '12px';
+  action.innerHTML = '<a class="button button-primary" href="pharmarcie.html">Open the full CX systems case study ↗</a>';
+}
