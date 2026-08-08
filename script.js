@@ -132,25 +132,44 @@ if (pharmGallery) {
 
 function installSamanticsLogo() {
   const logoUrl = 'samantics-logo.svg';
+
+  if (!document.querySelector('[data-samantics-polish]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-samantics-polish', '');
+    style.textContent = `
+      .wordmark-mark::before { content: none !important; display: none !important; }
+      .stage-note {
+        color: var(--ink) !important;
+        background: rgba(255, 253, 249, .94);
+        padding: 12px 15px 12px 17px;
+        border-radius: 14px;
+        box-shadow: 0 10px 28px rgba(16, 25, 43, .12);
+      }
+      .stage-kicker { color: rgba(255, 255, 255, .84) !important; }
+      .stage-card-main p { color: rgba(255, 255, 255, .88) !important; }
+    `;
+    document.head.appendChild(style);
+  }
+
   const mark = document.querySelector('.wordmark-mark');
 
   if (mark && !mark.querySelector('img')) {
     const headerLogo = document.createElement('img');
     headerLogo.src = logoUrl;
     headerLogo.alt = '';
-    headerLogo.width = 54;
-    headerLogo.height = 54;
-    headerLogo.style.width = '54px';
-    headerLogo.style.height = '54px';
+    headerLogo.width = 48;
+    headerLogo.height = 48;
+    headerLogo.style.width = '48px';
+    headerLogo.style.height = '48px';
     headerLogo.style.objectFit = 'contain';
     headerLogo.style.display = 'block';
     headerLogo.style.maxWidth = 'none';
-    headerLogo.style.transform = 'translateY(-9px)';
+    headerLogo.style.transform = 'none';
     mark.textContent = '';
     mark.style.background = 'transparent';
-    mark.style.width = '54px';
-    mark.style.height = '54px';
-    mark.style.transform = 'translateY(-2px)';
+    mark.style.width = '48px';
+    mark.style.height = '48px';
+    mark.style.transform = 'none';
     mark.appendChild(headerLogo);
   }
 
