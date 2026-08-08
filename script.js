@@ -79,6 +79,12 @@ cardLabels.forEach(([selector, label]) => {
   if (element) element.textContent = label;
 });
 
+const samanticsProjectTitle = document.querySelector('.project-card-samantics .project-meta h3');
+if (samanticsProjectTitle) samanticsProjectTitle.textContent = 'Samantics LLC';
+
+const samanticsCaseLabel = document.querySelector('.case-samantics .case-header .eyebrow');
+if (samanticsCaseLabel) samanticsCaseLabel.textContent = 'Samantics LLC';
+
 const atigGallery = document.querySelector('.gate-gallery');
 if (atigGallery) {
   let action = document.querySelector('[data-atig-case-link]');
@@ -147,6 +153,17 @@ function installSamanticsLogo() {
       }
       .stage-kicker { color: rgba(255, 255, 255, .84) !important; }
       .stage-card-main p { color: rgba(255, 255, 255, .88) !important; }
+      .project-card-samantics {
+        grid-column: 1 / -1;
+        width: calc(50% - 11px);
+        justify-self: center;
+      }
+      @media (max-width: 800px) {
+        .project-card-samantics {
+          grid-column: auto;
+          width: 100%;
+        }
+      }
     `;
     document.head.appendChild(style);
   }
