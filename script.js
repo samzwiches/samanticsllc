@@ -129,3 +129,62 @@ if (pharmGallery) {
   action.style.gap = '12px';
   action.innerHTML = '<a class="button button-primary" href="pharmarcie.html">Open the full CX systems case study ↗</a>';
 }
+
+function extractCssImageUrl(backgroundImage) {
+  if (!backgroundImage || backgroundImage === 'none') return '';
+  const match = backgroundImage.match(/^url\(["']?(.*?)["']?\)$/);
+  return match ? match[1] : '';
+}
+
+function installSamanticsLogo() {
+  const mark = document.querySelector('.wordmark-mark');
+  if (!mark || mark.querySelector('img')) return true;
+
+  const logoUrl = extractCssImageUrl(getComputedStyle(mark, '::before').backgroundImage);
+  if (!logoUrl) return false;
+
+  const headerLogo = document.createElement('img');
+  headerLogo.src = logoUrl;
+  headerLogo.alt = '';
+  headerLogo.width = 54;
+  headerLogo.height = 54;
+  headerLogo.style.width = '54px';
+  headerLogo.style.height = '54px';
+  headerLogo.style.objectFit = 'contain';
+  headerLogo.style.display = 'block';
+  headerLogo.style.maxWidth = 'none';
+  mark.textContent = '';
+  mark.appendChild(headerLogo);
+
+  const footerBrand = document.querySelector('.site-footer > div');
+  if (footerBrand && !footerBrand.querySelector('[data-footer-logo]')) {
+    const footerLogo = document.createElement('img');
+    footerLogo.src = logoUrl;
+    footerLogo.alt = 'Samantics LLC';
+    footerLogo.setAttribute('data-footer-logo', '');
+    footerLogo.style.width = '118px';
+    footerLogo.style.height = '118px';
+    footerLogo.style.objectFit = 'contain';
+    footerLogo.style.flex = '0 0 auto';
+
+    const strong = footerBrand.querySelector('strong');
+    if (strong) strong.textContent = 'Samantics LLC';
+
+    const textWrap = document.createElement('div');
+    while (footerBrand.firstChild) textWrap.appendChild(footerBrand.firstChild);
+    footerBrand.appendChild(footerLogo);
+    footerBrand.appendChild(textWrap);
+    footerBrand.style.display = 'flex';
+    footerBrand.style.alignItems = 'center';
+    footerBrand.style.gap = '18px';
+  }
+
+  return true;
+}
+
+const enhancementStylesheet = document.querySelector('link[href="portfolio-enhancements.css"]');
+if (!installSamanticsLogo()) {
+  enhancementStylesheet?.addEventListener('load', installSamanticsLogo, { once: true });
+  window.setTimeout(installSamanticsLogo, 150);
+  window.setTimeout(installSamanticsLogo, 700);
+}
