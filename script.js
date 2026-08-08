@@ -145,10 +145,12 @@ function installSamanticsLogo() {
     headerLogo.style.objectFit = 'contain';
     headerLogo.style.display = 'block';
     headerLogo.style.maxWidth = 'none';
+    headerLogo.style.transform = 'translateY(-9px)';
     mark.textContent = '';
     mark.style.background = 'transparent';
     mark.style.width = '54px';
     mark.style.height = '54px';
+    mark.style.transform = 'translateY(-2px)';
     mark.appendChild(headerLogo);
   }
 
