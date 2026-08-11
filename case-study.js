@@ -34,3 +34,12 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
   });
   show(0);
 });
+
+// Keep the Outside Inmates case study pinned to the newest real screenshot capture.
+// The query string prevents an older raw GitHub image from lingering in browser/CDN cache.
+const outsideInmatesCaptureVersion = 'a5f53c831a82e1cefaf4afbf21631f6ab0a10154';
+document.querySelectorAll('img[src*="raw.githubusercontent.com/samzwiches/outside-inmates/main/portfolio-screens/"]').forEach((image) => {
+  const url = new URL(image.src);
+  url.searchParams.set('v', outsideInmatesCaptureVersion);
+  image.src = url.toString();
+});
