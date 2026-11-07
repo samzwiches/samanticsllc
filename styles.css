@@ -285,3 +285,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+
+/* Homepage introduction to Samantics Tech Services */
+.tech-preview { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr); gap: clamp(24px, 6vw, 100px); align-items: center; background: #e4eeeb; }
+.tech-preview-copy { max-width: 850px; }
+.tech-preview h2 { max-width: 920px; margin: 0 0 26px; font: 600 clamp(42px, 5.4vw, 76px)/1.04 var(--serif); letter-spacing: -.05em; }
+.tech-preview p:not(.eyebrow) { max-width: 680px; margin: 0 0 28px; color: var(--ink-soft); font-size: 19px; }
+.tech-preview-art { position: relative; width: min(100%, 400px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 42px; background: var(--ink); color: var(--white); transform: rotate(4deg); box-shadow: 16px 20px 0 #cfb6c3; }
+.tech-preview-symbol { font: 600 clamp(135px, 19vw, 250px)/1 var(--serif); }
+.tech-preview-label { position: absolute; bottom: 30px; left: 25px; right: 25px; color: #d8b1c6; font: 800 11px var(--sans); letter-spacing: .11em; text-align: center; text-transform: uppercase; }
+@media (max-width: 800px) { .tech-preview { grid-template-columns: 1fr; } .tech-preview-art { width: 240px; border-radius: 24px; } .tech-preview-symbol { font-size: 150px; } }
