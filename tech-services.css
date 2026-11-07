@@ -1,0 +1,78 @@
+/* Samantics tech services. Uses the existing brand tokens from styles.css. */
+.tech-hero { max-width: 1500px; margin: 0 auto; padding-top: 190px; padding-bottom: 105px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(315px, .85fr); gap: clamp(28px, 6vw, 100px); align-items: center; }
+.tech-hero h1, .tech-section-head h2, .tech-approach h2, .tech-story h2, .tech-contact h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -.05em; line-height: 1.04; }
+.tech-hero h1 { margin: 0; font-size: clamp(55px, 6.9vw, 100px); }
+.tech-hero h1 em { font-style: normal; color: var(--mulberry); }
+.tech-lede { max-width: 660px; margin: 28px 0; font-size: clamp(18px, 1.6vw, 23px); line-height: 1.55; color: var(--ink-soft); }
+.tech-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.tech-smallprint { max-width: 600px; margin-top: 19px; color: var(--ink-soft); font-size: 14px; }
+.tech-console { position: relative; max-width: 540px; margin: auto; width: 100%; border-radius: 32px; background: var(--ink); box-shadow: 18px 26px 0 #e8d9df, 0 35px 85px rgba(16,25,43,.22); overflow: visible; transform: rotate(1.7deg); }
+.console-bar { display: flex; align-items: center; gap: 7px; min-height: 56px; padding: 0 24px; border-bottom: 1px solid rgba(255,255,255,.15); }
+.console-bar span { width: 10px; height: 10px; border-radius: 50%; background: #d2a44b; }
+.console-bar span:nth-child(2) { background: #9d3f67; }
+.console-bar span:nth-child(3) { background: #3f8787; }
+.console-bar small { margin-left: auto; color: rgba(255,255,255,.6); font-size: 11px; letter-spacing: .09em; }
+.console-content { padding: clamp(24px, 3vw, 42px); color: white; }
+.console-number { margin-bottom: 32px; font-family: var(--serif); font-size: 88px; line-height: 1; }
+.console-number span { font: 700 12px var(--sans); text-transform: uppercase; letter-spacing: .16em; vertical-align: middle; color: #dca6bc; }
+.console-line { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.18); font-weight: 600; }
+.console-line b { color: #9acac4; font-size: 24px; }
+.console-content p { margin: 25px 0 0; font-size: 13px; color: #cfdae0; }
+.console-sticker { position: absolute; right: -17px; bottom: -25px; width: 132px; height: 132px; display: grid; place-content: center; transform: rotate(-13deg); border-radius: 50%; background: var(--gold); color: var(--ink); text-align: center; font-size: 17px; font-weight: 800; line-height: 1.15; box-shadow: 0 14px 25px rgba(16,25,43,.18); }
+.tech-services { background: #f2ebdf; }
+.tech-section-head { max-width: 850px; margin-bottom: 42px; }
+.tech-section-head h2, .tech-approach h2, .tech-story h2, .tech-contact h2 { margin: 0 0 20px; font-size: clamp(43px, 5.4vw, 78px); }
+.tech-section-head > p:last-child { max-width: 710px; color: var(--ink-soft); font-size: 19px; }
+.tech-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tech-service-card { display: flex; flex-direction: column; min-height: 410px; padding: clamp(26px, 2.5vw, 40px); border-radius: 28px; border: 1px solid var(--line); background: var(--white); }
+.tech-service-card:nth-child(2) { background: #e3efed; }
+.tech-service-card:nth-child(3) { background: #f0e1e9; }
+.tech-count { color: var(--mulberry-dark); letter-spacing: .16em; font-size: 11px; font-weight: 800; }
+.tech-card-icon { margin: 22px 0 20px; font-size: 56px; line-height: 1; color: var(--teal-dark); }
+.tech-service-card h3 { margin: 0 0 14px; font-family: var(--serif); font-size: clamp(27px, 2.4vw, 35px); line-height: 1.12; }
+.tech-service-card p { margin: 0 0 16px; color: var(--ink-soft); }
+.tech-service-card .tech-card-note { margin-top: auto; padding-top: 22px; border-top: 1px solid var(--line); font-size: 13px; }
+.tech-approach { background: var(--white); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 120px); }
+.tech-steps { margin: 0; padding: 0; list-style: none; }
+.tech-steps li { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 23px 0; border-bottom: 1px solid var(--line); }
+.tech-steps li:first-child { padding-top: 0; }
+.tech-steps li > span { color: var(--mulberry); font: 700 15px var(--sans); }
+.tech-steps h3 { margin: 0 0 7px; font-family: var(--serif); font-size: 27px; line-height: 1.1; }
+.tech-steps p { margin: 0; color: var(--ink-soft); }
+.tech-story { background: #e5eeee; display: grid; grid-template-columns: minmax(180px, .65fr) minmax(0, 1.35fr); align-items: center; gap: clamp(34px, 8vw, 160px); }
+.tech-story-mark { position: relative; width: min(100%, 380px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; border: 22px solid rgba(16,25,43,.08); background: var(--teal-dark); font: 600 clamp(150px, 20vw, 300px) var(--serif); color: #fffaf6; box-shadow: 0 28px 0 rgba(16,25,43,.07); }
+.tech-story-mark span { position: absolute; right: -18px; top: -14px; font: 600 75px var(--sans); color: var(--gold); }
+.tech-story-copy { max-width: 850px; }
+.tech-story-copy p:not(.eyebrow) { color: var(--ink-soft); font-size: 18px; }
+.tech-text-link { display: inline-block; margin-top: 10px; font-weight: 800; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.tech-faq { background: var(--paper); }
+.tech-faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.tech-faq details { align-self: start; background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 26px; }
+.tech-faq summary { cursor: pointer; font: 600 23px var(--serif); line-height: 1.2; }
+.tech-faq details[open] summary { color: var(--mulberry-dark); }
+.tech-faq details p { margin-bottom: 0; color: var(--ink-soft); }
+.tech-contact { background: var(--paper); padding-top: 15px; }
+.tech-contact-card { display: flex; gap: 38px; align-items: end; justify-content: space-between; padding: clamp(36px, 6vw, 86px); border-radius: 40px; color: white; background: var(--ink); }
+.tech-contact-card .eyebrow { color: #dca6bc; }
+.tech-contact-card p:not(.eyebrow) { max-width: 690px; color: #d5dde4; font-size: 17px; }
+.tech-contact-action { flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.tech-contact-action span { font-size: 13px; color: #d5dde4; }
+@media (max-width: 1020px) {
+  .tech-hero { grid-template-columns: 1fr; padding-top: 155px; }
+  .tech-console { max-width: 610px; margin: 15px auto 25px; }
+  .tech-card-grid, .tech-approach { grid-template-columns: 1fr; }
+  .tech-service-card { min-height: auto; }
+  .tech-contact-card { flex-direction: column; align-items: stretch; }
+  .tech-contact-action { align-items: flex-start; }
+}
+@media (max-width: 700px) {
+  .tech-hero { padding-top: 145px; }
+  .tech-hero h1 { font-size: clamp(48px, 12vw, 75px); }
+  .tech-console { width: 94%; }
+  .console-number { font-size: 65px; }
+  .console-sticker { width: 98px; height: 98px; font-size: 13px; right: -17px; }
+  .tech-story, .tech-faq-grid { grid-template-columns: 1fr; }
+  .tech-story-mark { width: 185px; border-width: 14px; font-size: 145px; }
+  .tech-story-mark span { font-size: 42px; }
+  .tech-contact-card { border-radius: 27px; }
+}
